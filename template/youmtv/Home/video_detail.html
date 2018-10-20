@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$year}《{$title}》<if condition="($serial eq 0) and ($pid neq 1)">全集1-{$count}</if><if condition="($serial neq 0) and ($pid neq 1)">1-{$serial}</if>百度影音在线观看/下载-{$cname}-{$webname}</title>
+<meta name="keywords" content="{$title},{$title}在线观看,{$title}全集,{$title}下载">
+<meta name="description" content="由{$actor}主演的{$title}高清全集百度影音在线观看和下载;{$title}剧情:{$content|get_replace_html=0,100,'utf-8',true}">
+<include file="allstyle" />
+</head>
+<body class="allBg">
+<include file="headerAll" />
+<div class="wrapper">{:get_cms_ads('neirong-top')}</div>
+<div class="vcate"><span>当前位置：</span>{$navtitle}</div>
+<div class="wrapper">
+  <div class="dLeft">
+    <div class="ibox dteail">
+      <div class="dteailImg"> <a title="{$title}" href="{$playurl_first}" class="pic" target="_blank"><img src="{$picurl}" title="{$title}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="imgpic" alt="{$title}"/>
+        <gt name="hits" value="499"> <span class="hotV"></span> </gt>
+        </a> </div>
+      <div class="dteailInfo">
+        <div class="dteailTt">
+          <h1><a href="{$playurl_first}" class="title" title="{$title}" target="_blank">{$title}</a></h1>
+          <span>
+          <notempty name="intro">{$intro}</notempty>
+          <notempty name="serial">更新至{$serial}
+            <eq name="cid" value="4">期
+              <else/>
+              集{$intro}</eq>
+          </notempty>
+          </span></div>
+        <div class="dteailScore">
+          <if condition="c(url_html) eq 1">
+            <p class="score"><span id="Scorenum" class="Scorenum">{$score}</span> 分 (<span id="Scoreer" class="Scoreer">{$scoreer}</span>人评价)</p>
+            <else/>
+            <p class="score"><span id="Scorenum">{$score}</span> 分 (<span id="Scoreer">{$scoreer}</span>人评)</p>
+          </if>
+{:get_cms_ads('neirong-120-240')}
+        </div>
+        <ul class="dteailList">
+          <li><strong>
+            <eq name='cid' value='4'>主持
+              <else/>
+              <eq name='cid' value='3'>配音
+                <else/>
+                主演</eq>
+            </eq>
+            ：</strong>
+            <notempty name="actor">{$actor|get_replace_html=0,30|get_actor_url}
+              <else />
+              未知</notempty>
+          </li>
+          <li class="short"><strong>
+            <eq name='cid' value='4'>电视台
+              <else/>
+              导演</eq>
+            ：</strong>
+            <notempty name="director">{$director|get_replace_html=0,16|get_actor_url}
+              <else />
+              未知</notempty>
+          </li>
+          <li><strong>类型：</strong><a href="{$showurl}" target="_blank">{$cname}</a></li>
+          <li class="short"><strong>地区：</strong>{$area|default='未知'}</li>
+          <li><strong>语言：</strong>{$language|default='未知'}</li>
+          <li class="short"><strong>上映：</strong>{$year|default='未录入'} 年</li>
+          <li><strong>更新：</strong>{$addtime|get_color_date='Y年m月d日 H:i:s',###}</li>
+        </ul>
+        <div class="cont"><a href="http://jifendownload.2345.cn/jifen_2345/2345pack3_k5636_120010026.exe"><img src="/app/2345.gif" width="350" height="55" border="0"></a>
+</div>
+        <div class="dteailBtn">
+          <div class="btn1"><a title="{$title}在线观看" target="kankanWindow" href="{$playurl_first}">在线观看</a></div>
+          <div class="optionBtn v">
+            <div class="btn2"><span class="Up">顶{$up}</span><em>|</em><span class="Down">踩{$down}</span></div>
+          </div>
+        </div>
+        <div class="sharebox">
+          <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_tsina"></a>
+<a class="bds_qzone"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<a class="bds_tsohu"></a>
+<a class="bds_sqq"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;mini=1&amp;uid=676338" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END --> </div>
+        </div>
+      </div>
+    </div>
+    <div class="ibox iboxList playBox">
+      <div class="boxTt boxTtab" id="ord">
+        <p onmousedown="switchTab('bf',0,3,'on','');" class="on" id="Tab_bf_0"><span>在线观看
+          <!--<em>{$count}</em>-->
+          </span></p>
+        <p a onmousedown="switchTab('bf',1,3,'on','');" class="" id="Tab_bf_1"><span>免费下载</span></p>
+        <p a onmousedown="switchTab('bf',2,3,'on','');" class="" id="Tab_bf_2"><span>剧情介绍</span></p>
+      </div>
+      <div class="boxCon1 cno">
+        <div id="videoData" class="boxList">
+          <div id="List_bf_0" class="playConL" style="display: block;">        
+            <gxfor name ="playlists" id="playlist">
+              <gt name="playlist.count" value="0">
+                <div class="play_list">
+                  <p class="title">{$playlist.display_name} </p>
+                  <div id="plist">
+                    <ul class="split-list">
+                      <gxfor name="playlist.playlist" id="video">
+                      <li><a href="{$video.playurl}" target="_blank">{$video.playname}</a></li>
+                      <eq name="i" value="55">
+                    </ul>
+                    <ul id="all-plist" class="split_list all-plist" style="display:none;">
+                      </eq>
+                      </gxfor>
+                    </ul>
+                    <gt name="playlist.count" value="55">
+                      <div id="pmoreContain" class="playMoreA pmoreContain"><a onfocus="this.blur()" class="plMore" id="plMore">展开列表</a></div>
+                    </gt>
+                  </div>
+                </div>
+              </gt>
+            </gxfor>
+          </div>
+          <div id="List_bf_1" class="playCon" style="display:none;">
+            <div class="boxlist">
+              <gt name="countdown" value="0">
+                <div class="play_list">
+                  <p class="title">下载列表：</p>
+                  <div id="plist">
+                    <ul class="split-list">
+                      <gxfor name="downlist" id="video">
+                        <li><a href="{$video.playpath}" target="_blank">{$video.playname}</a></li>
+                      </gxfor>
+                    </ul>
+                  </div>
+                </div>
+                <else/>
+                暂无下载地址...</gt>
+            </div>
+          </div>
+          <div id="List_bf_2" class="playCon" style="display:none;">{$content}<p>温馨提示：您正在观看的《{$title}》的剧情介绍来自于[WWW.DADI.TV-大地影院]，如果您喜欢本站，请推荐给您的朋友，谢谢您的支持!最后更新：{$addtime|get_color_date='Y年m月d日',###}</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="dLeftAd">{:get_cms_ads('detail-left720')}</div>
+    <div class="ibox iboxList playBox">
+      <div class="boxTt top">
+        <h2>同类热门推荐</h2>
+      </div>
+      <ul class="tlMov">
+        <gxcms name="video" cid="'.$cid.'" limit="6" order="stars desc,hits desc"> <li 
+          
+          <eq name="i" value="6">class="no"</eq>
+          >
+          <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /></a> </div>
+          <p class="movTt"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment" target="_blank">{$video.title|get_replace_html=0,8}</a></p>
+          <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+          </li>
+        </gxcms>
+      </ul>
+    </div>
+    <!--影片评论-->
+    <if condition="C('user_comment') eq 1">
+      <div class="ibox iboxList playBox"> <a name="cmm" id="comment"></a>
+        <div class="boxTt top">
+          <h2>影片评论</h2>
+        </div>
+        <div class="comm"><include file="comm"/></div>
+        <!--发表评论表单 -->
+      </div>
+    </if>
+  </div>
+   <div class="rightAd">{:get_cms_ads('nryb-300')}
+    <div class="ibox submenu">
+      <div class="boxTt top">
+        <h2>
+          <eq name="pid" value="1">电影<else /><eq name="pid" value="2">电视剧<else /></eq><eq name="cid" value="3">动漫<else /></eq><eq name="cid" value="4">综艺<else /></eq><eq name="cid" value="6">纪录片<else /></eq></eq>热播榜</h2>
+      </div>
+      <div class="boxCon">
+        <div class="reboList rL">
+          <ul>
+            <eq name="pid" value="1">
+              <gxcms name="video" cid="'.$pid.'" limit="15" order="hits desc">
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,12}</a> <span>{$video.score}</span>
+                </li>
+              </gxcms>
+              <else />
+              <eq name="pid" value="2">
+                <gxcms name="video" cid="'.$pid.'" limit="15" order="hits desc">
+                  <lt name="i" value="4">
+                    <li class="no2">
+                      <else />
+                    <li> 
+                  </lt>
+                  <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,12}</a> <span>{$video.score}</span>
+                  </li>
+                </gxcms>
+                <else />
+                <gxcms name="video" cid="'.$cid.'" limit="15" order="hits desc">
+                  <lt name="i" value="4">
+                    <li class="no2">
+                      <else />
+                    <li> 
+                  </lt>
+                  <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,12}</a> <span>{$video.score}</span>
+                  </li>
+                </gxcms>
+              </eq>
+            </eq>
+          </ul>
+        </div>
+      </div>
+    </div>
+{:get_cms_ads('detail-right240-1')}
+  </div>
+ </div>
+<script src="{$webpath}youmtv/js/comment.js" type="text/javascript"></script>
+<include file="footer"/>
+</body>
+</html>

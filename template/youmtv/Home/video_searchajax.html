@@ -1,0 +1,6 @@
+<gxsearch name="video" limit="10" > 
+<a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,10|get_hilight=$keyword}<i> {$video.showname}</i></a>
+</gxsearch>
+<gxsearch name="video" limit="1" > 
+<a class="sbtm">共找到 <strong class="kw-hilight">{$count}</strong > 条与 <strong  class="kw-hilight">"{$keyword}"</strong > 的相关结果</a>
+</gxsearch>

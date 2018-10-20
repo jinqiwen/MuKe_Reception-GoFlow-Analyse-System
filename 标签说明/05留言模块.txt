@@ -1,0 +1,19 @@
+===========================================留言列表分页标签===================================
+参    数:
+    limit:每页数据条数 不填写则默认值为10
+    order:数据排序方式 不填写则默认值为addtime,可使用字段信息如下
+        id,专题ID/addtime,上传时间/hits,人气值/stars,根据地址栏的order参数动态变化(按人气,时间,id)
+<gxlist name="guestbook" limit="10" order="addtime desc">
+    {$i}
+    {$guestbook.id}
+    {$guestbook.content|htmlspecialchars}
+    {$guestbook.recontent|htmlspecialchars}
+    {$guestbook.ip}
+    {$guestbook.top}
+    {$guestbook.status}
+    {$guestbook.addtime|get_color_date='Y-m-d H:i:s',###}
+    {$guestbook.floor}
+    {$guestbook.userid}
+    {$guestbook.username|htmlspecialchars}
+    {$guestbook.face}
+</gxlist>

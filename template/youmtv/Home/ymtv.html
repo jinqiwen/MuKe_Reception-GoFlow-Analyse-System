@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NBA直播,足球直播,CCTV5在线直播,CBA直播,英超直播,NBA在线直播,NBA视频直播,NBA直播吧,CBA直播吧-{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<include file="allstyle" />
+</head>
+<body>
+<div id="ymtv"><include file="headerAll"/></div>
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 16px;
+	font-weight: bold;
+}
+.STYLE2 {font-size: 16px}
+-->
+</style>
+<table width="980" height="60" border="0" align="center">
+  <tr>
+    <td width="476"><span class="STYLE2">正在播放：> 高清网络电视直播<td>
+    <td width="468"><div align="right">{:get_cms_ads('play-ysj')}</div></td>
+  </tr>
+</table>
+<div class="ymtvBox">
+  <div class="ymtv">
+
+<div align="center"><div id="feng-yun-mini-wrap">
+<a id="loading-info" href="http://www.fengyunzhibo.com" target="_blank">正在加载【大地影院TV】播放器，请稍候...</a>
+</div>
+<script type="text/javascript">window.fengyunminicongf={tuiguangid:"daditv",width:960,height:530}</script>
+<script type="text/javascript" src="http://static.m1lxcdn.kukuplay.com/support/mini/fyminiloader-min.js"></script>
+</div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="ibox iboxList playTv">
+      <div class="boxTt top">
+        <h2>热门推荐</h2>
+      </div>
+      <ul class="tlMov tlTv">
+        <gxcms name="video" cid="1,2" limit="16" order="weekhits desc,addtime desc">
+        <li <eq name="i" value="6">class="no"</eq>>
+          <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/></a> </div>
+          <p class="movTt"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment" target="_blank">{$video.title|get_replace_html=0,8}</a></p>
+          <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+          </li>
+        </gxcms>
+      </ul>
+    </div>
+</div>
+<include file="footer" />{$inserthits}
+<script type="text/javascript">
+	$(function() {
+	  $("img").lazyload({
+		  effect : "fadeIn"
+	  });
+	});
+</script>
+<script src="{$webpath}youmtv/js/lazyload.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

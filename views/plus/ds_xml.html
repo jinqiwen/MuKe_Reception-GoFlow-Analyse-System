@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定时采集生成器</title>
+<style type="text/css">
+body{ padding-top:50px}
+table{ border:1px solid #F0F0F0; font-size:12px; width:650px; height:300px; padding:5px; position:relative}
+input{ text-align:center}
+.w50{ width:50px}
+.w500{ width:500px}
+th{width:100%; height:80px; color: #006699; font-size:16px; background-color:#F6F6F6}
+</style></head>
+<body>
+<form action="index.php?s=plus/dsxml/wait" method="post">
+<table border='0' cellpadding='0' cellspacing='0' align='center'>
+<tr><th colspan="2">光线一键定时采集插件-20110830</th></tr>
+<tr><td width="22%">定时一键采集资源列表： </td>
+  <td width="78%" style="text-align:left"><script language="javascript" src="http://union.gxcms.com/app/ds.js"></script></td>
+</tr>
+<tr><td>采集抓取频率(分钟/次)： </td>
+  <td><input name="ds[caiji]" type="text"  value="60" class="w50"/></td>
+</tr>
+<tr><td>生成当天频率(分钟/次)： </td>
+  <td><input name="ds[day]" type="text"  value="120" class="w50"/></td>
+</tr>
+<tr><td colspan="2" style="text-align:center"><input name="" type="submit"  value="执行任务"/></td></tr>
+<tr>
+  <td colspan="2" >注:不需要定时操作的模块，请填写0</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

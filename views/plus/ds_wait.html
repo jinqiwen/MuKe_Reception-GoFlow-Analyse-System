@@ -1,0 +1,38 @@
+<table border='0' cellpadding='0' cellspacing='0' width='760' height='600' align='center' style="border:1px solid #CCCCCC; font-size:12px; margin-top:50px; text-align:center">
+<tr><td valign='top' id='caiji' height='200' style="line-height:200px; font-size:14px">定时采集等侍中...</td></tr>
+<tr><td valign='top' height='1' style="background:#e8e8e8"></td></tr>
+<tr><td valign='top' id='day' height='200' style="line-height:200px; font-size:14px">生成当天影视等侍中...</td></tr>
+</table>
+<span id="session"></span>
+<script>
+setInterval('$session()',1000*60*5);//防止后台超时
+var $time = new Array();
+$time['caiji'] = {$caiji};
+$time['day'] = {$day};
+if($time['caiji'] > 0){
+	setInterval('$caiji()',1000*60*{$caiji});
+}
+if($time['day'] > 0){
+	setInterval('$day()',1000*60*{$day});
+}
+var urln = 0;
+var array_url = new Array();
+<volist name="url" id="gxcms">
+array_url[{$key}]='{$gxcms}';
+</volist>
+
+function $caiji(){
+	if(urln < array_url.length-1){
+		urln++;
+	}else{
+		urln=0;
+	}
+	document.getElementById("caiji").innerHTML = "<iframe width='100%' height='200' src='"+array_url[urln]+"' scrolling='auto'></iframe>";
+}
+function $day(){
+	document.getElementById("day").innerHTML = "<iframe width='100%' height='200' src='index.php?s=Admin/Html/Videoday/mday/1' scrolling='auto'></iframe>";
+}
+function $session(){
+	document.getElementById("session").innerHTML = "<iframe width='100%' height='100' src='index.php?s=/Admin/Index/Main' scrolling='auto' style='display:none'></iframe>";
+}
+</script>

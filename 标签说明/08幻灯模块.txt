@@ -1,0 +1,9 @@
+===========================================»ÃµÆÄ£¿é===================================
+<gxcms name="slide" order="oid asc">
+    {$i} ÅÅÐòÎ»
+    {$slide.title} »ÃµÆÃû³Æ
+    {$slide.content} »ÃµÆ¼ò½é
+    {$slide.link} »ÃµÆÁ´½Ó
+    {$slide.picurl} »ÃµÆÍ¼Æ¬
+    {$slide.picurl-s} »ÃµÆÐ¡Í¼
+</gxcms>

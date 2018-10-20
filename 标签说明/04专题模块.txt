@@ -1,0 +1,67 @@
+===========================================专题循环调用标签说明===================================
+解析范围: 全站模板均可调用
+参    数:
+	name:special
+	ids:调用指定ID的一个或多个数据,如 1,2,3
+	field:调用指定字段,如(id,title,actor) 默认全部
+	limit:数据条数,默认值为10,可以指定从第几条开始,如3,8(表示共调用8条,从第3条开始)
+	order:推荐方式(id/addtime/hits/monthhits/weekhits/dayhits/year/up/down) (desc/asc/rand())
+	hits:大于指定人气值的数据(如:888)或某段之间的(如:888,999)
+	up:大于指定支持值的数据(如:888)或某段之间的(如:888,999)
+	down:大于指定反对值的数据(如:888)或某段之间的(如:888,999)
+<gxcms name="special" limit="10">
+    {$i}
+    {$special.id} 专题ID
+    {$special.title} 专题名称
+    {$special.logo} 专题LOGO
+    {$special.banner} 专题Banner
+    {$special.content} 专题简介 {$special.content|msubstr=0,30}
+    {$special.hits} 专题人气
+    {$special.addtime} 专题更新时间 {$special.addtime|date='Y-m-d H:i:s',###}
+</gxcms>
+
+===========================================专题(列表页)标签说明===================================
+解析范围: 专题栏目页模板(special_list.html)
+{$page} 当前页数
+{$pages} 分页数字列表
+===========================================专题(列表页)分页循环展示标签=============================
+参    数:
+    limit:每页数据条数 不填写则默认值为10
+    order:数据排序方式 不填写则默认值为addtime,可使用字段信息如下
+        id,专题ID/addtime,上传时间/hits,人气值/stars,根据地址栏的order参数动态变化(按人气,时间,id)
+<gxlist name="special" limit="12" order="$order">
+    {$i}
+    {$special.id} 专题ID
+    {$special.title} 专题名称
+    {$special.logo} 专题LOGO
+    {$special.banner} 专题Banner
+    {$special.content} 专题简介 {$special.content|msubstr=0,30}
+    {$special.hits} 专题人气
+    {$special.addtime} 专题更新时间
+    {$special.aids} 收录的文章ID集
+    {$special.mids} 收录的影视ID集
+</gxlist>
+
+===========================================专题(详情页)标签变量====================================
+    {$id} 专题ID
+    {$aids} 收录的文章ID集
+    {$mids} 收录的影视ID集
+    {$title} 专题名称
+    {$content} 专题简介
+    {$logo} 专题logo
+    {$banner} 专题banner
+    {$hits} 专题总人气值
+    {$monthhits} 月人气值
+    {$weekhits} 周人气值
+    {$dayhits} 日人气值
+    {$inserthits} 写入点击数
+    {$addtime} 专题更新时间 {$addtime|date='Y-m-d H:i:s',###}
+
+收录影片列表循环标签:
+<notempty name="mids"><gxcms name="'.$mids.'" id="video">
+	.....参考具体的影片循环变量
+</gxcms></notempty>
+收录文章列表循环标签:
+<notempty name="aids"><gxcms name="'.$aids.'" id="info">
+	.....参考具体的文章循环变量
+</gxcms></notempty>

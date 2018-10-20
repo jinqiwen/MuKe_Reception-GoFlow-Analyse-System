@@ -1,0 +1,58 @@
+===========================================全局导航标签===================================
+参    数:
+    ids:可以指定多个,以逗号分隔,留空则表示调用全部
+<gxcms name="menu" ids="1,2,3">
+    {$i} 排序位
+    {$menu.id} 菜单ID
+    {$menu.oid} 菜单排序ID
+    {$menu.pid} 菜单父级ID
+    {$menu.mid} 模型ID(1=影视,2=文章,3=专题,9=外部链接)
+    {$menu.cname} 菜单名称
+    {$menu.showurl} 菜单链接
+    <gxfor name="menu.son" id="menu">
+    	{$i} 排序位
+    	{$menu.id} 菜单ID
+    	{$menu.oid} 菜单排序ID
+    	{$menu.pid} 菜单父级ID
+    	{$menu.cname} 菜单名称
+    	{$menu.showurl} 菜单链接
+    </gxfor>
+</gxcms>
+
+
+
+========================================惯列用法(判断是否当前分类)===================================
+<eq name="menu.id" value="$cid">class="onhover"</eq>
+<if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">正处于当前分类</if>
+//////////////
+<gxcms name="menu">
+    <if condition="($menu['id'] eq $cid) or ($menu['id'] eq $pid)">
+        <div class="web-t-sub-bg">
+        <gxfor name="menu.son" id="menuson" key="soni">
+            <a href="{$menuson.showurl}" title="{$menuson.cname}">{$menuson.cname}</a>&nbsp;|&nbsp;
+        </gxfor>
+        </div>
+    </if>
+</gxcms>
+<if condition="$i lt count($menu['son'])">&nbsp;|&nbsp;</if>判断是否为最后一个
+
+========================================惯列用法(只显示影视模块的链接 放在循环标签内控制)================
+<if condition="get_channel_son($menu['id']) eq 1">没有子类<else/>有子类</if>
+/////////////
+<gxfor name="menulist" id="menu">
+<if condition="get_channel_son($menu['id']) eq 1">
+<li><a href="{$menu.showurl}" <eq name="menu.id" value="$id">class="nonce"</eq>>{$menu.cname}</a></li>
+<else/>
+<gxfor name="menu.son" id="menuson"><li><a href="{$menuson.showurl}" <eq name="ppvodson.list_id" value="$list_id">class="nonce"</eq>>{$ppvodson.list_name}</a></li></volist>
+</if>
+</gxfor>
+///////////
+<gxcms name="menu">
+            <if condition="get_channel_son($menu['id']) eq 1">
+            <a onfocus="this.blur();" href="{$menu.showurl}">{$menu.cname}</a>
+            <else/>
+        	<gxfor name="menu.son" id="menuson" key="soni">
+            <a href="{$menuson.showurl}" title="{$menuson.cname}">{$menuson.cname}</a>
+        	</gxfor>
+            </if>
+   		</gxcms>

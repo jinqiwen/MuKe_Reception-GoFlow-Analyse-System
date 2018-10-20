@@ -1,0 +1,957 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<title>2013最新电影,最新电视剧,百度影音电影网-{$webtitle}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<script language="javascript">var SitePath='{$webpath}';var SiteMid='{$mid}';var SiteCid='{$cid}';var SiteId='{$id}';var SiteShortName='{$webname}';</script>
+<script language="JavaScript" type="text/javascript" src="/youmtv/js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href='{$webpath}views/css/system.css'>
+<link rel="stylesheet" type="text/css" href="{$webpath}youmtv/images/style.css" />
+<link rel="stylesheet" type="text/css" href="{$webpath}youmtv/images/banner.css" />
+<link rel="shortcut icon" href="{$webpath}favicon.ico" />  
+</head>
+<body>
+<include file="header" />
+<include file="banner" />
+<!--主体开始-->
+<div class="wrapper">
+  <div class="box">
+    <div class="page">
+      <div class="main">
+          <div class="act">
+            <gxcms name="video" cid="" limit="5" order="addtime desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(1,'showurl')}" title="更多" class="more">更多>></a> </div>
+        <div class="boxTt">
+          <h2><span>推荐电影</span></h2>
+        </div>
+        <div class="boxList">
+          <ul>
+            <gxcms name="video" cid="" limit="1,12" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /></a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                      <span class="extArrow"></span> </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <div class="cate top1">
+        <gxcms name="video" cid="1,2" limit="1" order="weekhits desc" stars="5">
+          <div class="topImg"> <a title="{$video.title}" href="{$video.readurl}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /></a> </div>
+          <div class="topText">
+            <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><em>{$video.score}</em><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+            主演：{$video.actor|get_replace_html=0,13|get_actor_url}
+            <div class="p2">{$video.content|get_replace_html=0,40,'utf-8',true}</div>
+          </div>
+        </gxcms>
+      </div>
+    </div>
+  </div>
+</div>
+<!--今日电影开始-->
+<div class="wrapper">
+<div class="indexAd">{:get_cms_ads('index-980-1')}</div>
+  <div class="box b1">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt m1">
+          <h2><a title="{:get_channel_name(1)}" href="{:get_channel_name(1,'showurl')}" target="_blank">{:get_channel_name(1)}</a></h2>
+          <div class="act">
+            <gxcms name="video" cid="1" limit="5" order="addtime desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(1,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="hotBox">
+          <gxcms name="video" cid="1" limit="1" order="addtime desc" stars="4">
+            <div class="hotImg">
+              <div class="picBox">
+                <div class="pic"><a title="{$video.title}" href="{$video.readurl}"><img src="{$video.picurl}"  alt="{$video.title}" /></a></div>
+                <div class="imgBg"></div>
+              </div>
+              <h4><a title="{$video.title}" href="{$video.readurl}" target="_blank">{$video.title|get_replace_html=0,12}</a><span> {$video.intro|get_replace_html=0,8|default='最新热片'}</span></h4>
+              <ul>
+                <li>导演：<b>{$video.director|default='未知'}</b></li>
+                <li>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</li>
+                <li class="L1">类型：<a href="{$video.showurl}" target="_blank">{$video.showname}</a></li>
+                <li class="L1">年份：<b>{$video.year}</b></li>
+                <li class="text">{$video.content|get_replace_html=0,40,'utf-8',true}<a href="{$video.readurl}" target="_blank">详情</a></li>
+              </ul>
+            </div>
+          </gxcms>
+          <div class="sideTt">
+            <h3>用户满意度</h3>
+          </div>
+          <div class="hotTab">
+            <ul class="tigger">
+              <li onmouseover="switchTab('movieleft',0,5,'on','')" id="Tab_movieleft_0" class="on" >动作指数</li>
+              <li onmouseover="switchTab('movieleft',1,5,'on','')" id="Tab_movieleft_1" class="">喜剧指数</li>
+              <li onmouseover="switchTab('movieleft',2,5,'on','')" id="Tab_movieleft_2" class="">爱情指数</li>
+              <li onmouseover="switchTab('movieleft',3,5,'on','')" id="Tab_movieleft_3" class="">科幻指数</li>
+              <li onmouseover="switchTab('movieleft',4,5,'on','')" id="Tab_movieleft_4" class="">恐怖指数</li>
+            </ul>
+            <ol class="txtlist numranking" id="List_movieleft_0" style="">
+              <gxcms name="video" cid="8" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display:none" class="txtlist2 numranking" id="List_movieleft_1">
+              <gxcms name="video" cid="9" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display:none" class="txtlist2 numranking" id="List_movieleft_2">
+              <gxcms name="video" cid="10" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display: none;" class="txtlist2 numranking" id="List_movieleft_3">
+              <gxcms name="video" cid="11" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display: none;" class="txtlist2 numranking" id="List_movieleft_4">
+              <gxcms name="video" cid="13" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+          </div>
+        </div>
+        <div class="boxList m">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="1" limit="12" order="addtime desc,weekhits desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><gt name="video.hits" value="999">
+                    <span class="hotV"></span>
+                  </gt></a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                      <span class="extArrow"></span> </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <!--电影排行-->
+      <div class="cate rebo">
+        <div class="tBox">
+          <h4>{:get_channel_name(1)}排行榜</h4>
+          <div class="tabbox"> <a id="Tab_mrebo_0" class="on" onmouseover="switchTab('mrebo',0,3,'on','');">本日</a> <a id="Tab_mrebo_1" onmouseover="switchTab('mrebo',1,3,'on','');">本周</a> <a id="Tab_mrebo_2" onmouseover="switchTab('mrebo',2,3,'on','');">本月</a> </div>
+        </div>
+        <div class="reboList">
+          <ul id="List_mrebo_0">
+            <gxcms name="video" cid="1" limit="10" order="dayhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_mrebo_1" style="display:none;">
+            <gxcms name="video" cid="1" limit="10" order="weekhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_mrebo_2" style="display:none;">
+            <gxcms name="video" cid="1" limit="10" order="monthhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /></a><span class="rtop"></span></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+        </div>
+        <div class="leftType"> <span>类型：</span>
+          <gxcms name="menu" ids="1">
+            <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a> </gxfor>
+          </gxcms>
+        </div>
+        <div class="leftType"> <span>地区：</span><a href="{$webpath}index.php?s=video/lists/id/1/area/中国">中国</a><a href="{$webpath}index.php?s=video/lists/id/1/area/内地">内地</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/香港">香港</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/台湾">台湾</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/欧美">欧美</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/韩国">韩国</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/日本">日本</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/泰国">泰国</a> <a href="{$webpath}index.php?s=video/lists/id/1/area/德国">德国</a> </div>
+        <div class="leftType"> <span>年代：</span> <a href="{$webpath}index.php?s=video/lists/id/1/year/2013">2013</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2012">2012</a><a href="{$webpath}index.php?s=video/lists/id/1/year/2011">2011</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2010">2010</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2009">2009</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2008">2008</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2007">2007</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2006">2006</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2005">2005</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2004">2004</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2003">2003</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2002">2002</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2001">2001</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/2000">2000</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/1999">1999</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/1998">1998</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/1997">1997</a> <a href="{$webpath}index.php?s=video/lists/id/1/year/1996">1996</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--今日电影结束-->
+<!--今日电视剧开始-->
+<div class="wrapper">
+  <div class="box b1">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt m2">
+          <h2><a title="{:get_channel_name(2)}" href="{:get_channel_name(2,'showurl')}" target="_blank">{:get_channel_name(2)}</a></h2>
+          <div class="act">
+            <gxcms name="video" cid="2" limit="5" order="addtime desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(2,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="hotBox">
+          <gxcms name="video" cid="2" limit="1" order="addtime desc" stars="5">
+            <div class="hotImg">
+              <div class="picBox">
+                <div class="pic"><a title="{$video.title}" href="{$video.readurl}"><img src="{$video.picurl}"  alt="{$video.title}" /></a></div>
+                <div class="imgBg"></div>
+              </div>
+              <h4><a title="{$video.title}" href="{$video.readurl}" target="_blank">{$video.title|get_replace_html=0,12}</a><span> {$video.intro|get_replace_html=0,8|default='最新热片'}</span></h4>
+              <ul>
+                <li>导演：<b>{$video.director|default='未知'}</b></li>
+                <li>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</li>
+                <li class="L1">类型：<a href="{$video.showurl}" target="_blank">{$video.showname}</a></li>
+                <li class="L1">年份：<b>{$video.year}</b></li>
+                <li class="text">{$video.content|get_replace_html=0,40,'utf-8',true}<a href="{$video.readurl}" target="_blank">详情</a></li>
+              </ul>
+            </div>
+          </gxcms>
+          <div class="sideTt">
+            <h3>用户满意度</h3>
+          </div>
+          <div class="hotTab">
+            <ul class="tigger">
+              <li class="on" onmouseover="switchTab('tvleft',0,5,'on','')" id="Tab_tvleft_0">国产剧</li>
+              <li onmouseover="switchTab('tvleft',1,5,'on','')" id="Tab_tvleft_1" class="">台湾剧</li>
+              <li onmouseover="switchTab('tvleft',2,5,'on','')" id="Tab_tvleft_2" class="">香港剧</li>
+              <li onmouseover="switchTab('tvleft',3,5,'on','')" id="Tab_tvleft_3" class="">韩国剧</li>
+              <li onmouseover="switchTab('tvleft',4,5,'on','')" id="Tab_tvleft_4" class="">欧美剧</li>
+            </ul>
+            <ol class="txtlist numranking" id="List_tvleft_0" style="">
+              <gxcms name="video" cid="15" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display:none" class="txtlist2 numranking" id="List_tvleft_1">
+              <gxcms name="video" cid="16" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display:none" class="txtlist2 numranking" id="List_tvleft_2">
+              <gxcms name="video" cid="17" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display: none;" class="txtlist2 numranking" id="List_tvleft_3">
+              <gxcms name="video" cid="18" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+            <ol style="display: none;" class="txtlist2 numranking" id="List_tvleft_4">
+              <gxcms name="video" cid="20" limit="5" order="score desc">
+                <lt name="i" value="4">
+                  <li class="top">
+                    <else />
+                  <li> 
+                </lt>
+                <span>0{$i}.</span><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,10}</a>
+                </li>
+              </gxcms>
+            </ol>
+          </div>
+        </div>
+        <div class="boxList m">
+          <ul id="List_retv_0">
+            <gxcms name="video" cid="2" limit="12" order="addtime desc,weekhits desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><gt name="video.hits" value="999">
+                    <span class="hotV"></span>
+                  </gt></a>
+                  <div class="verbg"></div>
+                  <div class="ver">
+                    <if condition="$video.serial neq 0 || ''">更新至{$video.serial}集
+                      <else />
+                      全集完</if>
+                  </div>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                      <span class="extArrow"></span> </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热剧'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <!--电视剧排行开始-->
+      <div class="cate rebo">
+        <div class="tBox">
+          <h4>{:get_channel_name(2)}排行榜</h4>
+          <div class="tabbox"> <a id="Tab_tvrebo_0" class="on" onmouseover="switchTab('tvrebo',0,3,'on','');">本日</a> <a id="Tab_tvrebo_1" onmouseover="switchTab('tvrebo',1,3,'on','');">本周</a> <a id="Tab_tvrebo_2" onmouseover="switchTab('tvrebo',2,3,'on','');">本月</a> </div>
+        </div>
+        <div class="reboList">
+          <ul id="List_tvrebo_0">
+            <gxcms name="video" cid="2" limit="10" order="dayhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_tvrebo_1" style="display:none;">
+            <gxcms name="video" cid="2" limit="10" order="weekhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_tvrebo_2" style="display:none;">
+            <gxcms name="video" cid="2" limit="10" order="monthhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+        </div>
+        <div class="leftType"> <span>类型：</span>
+          <gxcms name="menu" ids="2">
+            <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a> </gxfor>
+          </gxcms>
+        </div>
+        <div class="leftType"> <span>地区：</span><a href="{$webpath}index.php?s=video/lists/id/2/area/中国">中国</a><a href="{$webpath}index.php?s=video/lists/id/2/area/内地">内地</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/香港">香港</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/台湾">台湾</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/欧美">欧美</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/韩国">韩国</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/日本">日本</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/泰国">泰国</a> <a href="{$webpath}index.php?s=video/lists/id/2/area/德国">德国</a> </div>
+        <div class="leftType"> <span>年代：</span><a href="{$webpath}index.php?s=video/lists/id/2/year/2013">2013</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2012">2012</a><a href="{$webpath}index.php?s=video/lists/id/2/year/2011">2011</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2010">2010</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2009">2009</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2008">2008</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2007">2007</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2006">2006</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2005">2005</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2004">2004</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2003">2003</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2002">2002</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2001">2001</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/2000">2000</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/1999">1999</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/1998">1998</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/1997">1997</a> <a href="{$webpath}index.php?s=video/lists/id/2/year/1996">1996</a></div>
+      </div>
+      <!--电视剧排行结束-->
+    </div>
+  </div>
+</div>
+<!--今日电视剧结束-->
+<!--今日综艺开始-->
+<div class="wrapper">
+<div class="indexAd">{:get_cms_ads('index-980-2')}</div>
+  <div class="box b1">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt m4">
+          <h2><a title="{:get_channel_name(4)}" href="{:get_channel_name(4,'showurl')}" target="_blank">{:get_channel_name(4)}</a></h2>
+          <div class="act">
+            <gxcms name="video" cid="4" limit="5" order="addtime desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(4,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="hotBox">
+          <gxcms name="video" cid="4" limit="1" order="addtime desc" stars="4">
+            <div class="hotImg">
+              <div class="picBox">
+                <div class="pic"><a title="{$video.title}" href="{$video.readurl}"><img src="{$video.picurl}"  alt="{$video.title}" /></a></div>
+                <div class="imgBg"></div>
+              </div>
+              <h4><a title="{$video.title}" href="{$video.readurl}" target="_blank">{$video.title|get_replace_html=0,12}</a><span>
+                <if condition="$video.serial neq 0 || ''">{$video.serial}期
+                  <else />
+                  全集完</if>
+                </span></h4>
+              <ul>
+                <li>主持：{$video.actor|get_replace_html=0,16|get_actor_url}</li>
+                <li class="L1">类型：<a href="{$video.showurl}" target="_blank">{$video.showname}</a></li>
+                <li class="L1">年份：<b>{$video.year}</b></li>
+                <li class="text">{$video.content|get_replace_html=0,40,'utf-8',true}<a href="{$video.readurl}" target="_blank">详情</a></li>
+              </ul>
+            </div>
+          </gxcms>
+          <div class="hotTxt">
+            <ul>
+              <gxcms name="video" cid="4" limit="7" order="score desc">
+                <li><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,10}</a><i>
+                  <if condition="$video.serial neq 0 || ''">{$video.serial}期
+                    <else />
+                    全集完</if>
+                  </i></li>
+              </gxcms>
+            </ul>
+          </div>
+        </div>
+        <div class="boxList m">
+          <ul id="List_rezy_0">
+            <gxcms name="video" cid="4" limit="12" order="addtime desc,weekhits desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><gt name="video.hits" value="999">
+                    <span class="hotV"></span>
+                  </gt></a>
+                  <div class="verbg"></div>
+                  <div class="ver">
+                    <if condition="$video.serial neq 0 || ''">{$video.serial}期
+                      <else />
+                      全集完</if>
+                  </div>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                      <span class="extArrow"></span> </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热播'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <!--综艺排行开始-->
+      <div class="cate rebo">
+        <div class="tBox">
+          <h4>{:get_channel_name(4)}排行榜</h4>
+          <div class="tabbox"> <a id="Tab_zyrebo_0" class="on" onmouseover="switchTab('zyrebo',0,3,'on','');">本日</a> <a id="Tab_zyrebo_1" onmouseover="switchTab('zyrebo',1,3,'on','');">本周</a> <a id="Tab_zyrebo_2" onmouseover="switchTab('zyrebo',2,3,'on','');">本月</a> </div>
+        </div>
+        <div class="reboList">
+          <ul id="List_zyrebo_0">
+            <gxcms name="video" cid="4" limit="10" order="dayhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_zyrebo_1" style="display:none;">
+            <gxcms name="video" cid="4" limit="10" order="weekhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_zyrebo_2" style="display:none;">
+            <gxcms name="video" cid="4" limit="10" order="monthhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+        </div>
+        <div class="leftType"> <span>明星：</span><a href="{$webpath}index.php?s=video/search/wd/孟非">孟非</a><a href="{$webpath}index.php?s=video/search/wd/乐嘉">乐嘉</a> <a href="{$webpath}index.php?s=video/search/wd/何炅">何炅</a> <a href="{$webpath}index.php?s=video/search/wd/徐熙娣">徐熙娣</a> <a href="{$webpath}index.php?s=video/search/wd/汪涵">汪涵</a> <a href="{$webpath}index.php?s=video/search/wd/杨澜">杨澜</a> <a href="{$webpath}index.php?s=video/search/wd/欧弟">欧弟</a> <a href="{$webpath}index.php?s=video/search/wd/谢娜">谢娜</a> <a href="{$webpath}index.php?s=video/search/wd/陈鲁豫">陈鲁豫</a> <a href="{$webpath}index.php?s=video/search/wd/沈涛">沈涛</a> <a href="{$webpath}index.php?s=video/search/wd/李静">李静</a> <a href="{$webpath}index.php?s=video/search/wd/孙鹏">孙鹏</a> <a href="{$webpath}index.php?s=video/search/wd/李晨">李晨</a> <a href="{$webpath}index.php?s=video/search/wd/吴宗宪">吴宗宪</a></div>
+        <div class="leftType"> <span>地区：</span><a href="{$webpath}index.php?s=video/lists/id/3/area/中国">中国</a><a href="{$webpath}index.php?s=video/lists/id/3/area/内地">内地</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/香港">香港</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/台湾">台湾</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/欧美">欧美</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/韩国">韩国</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/日本">日本</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/泰国">泰国</a> <a href="{$webpath}index.php?s=video/lists/id/3/area/德国">德国</a> </div>
+        <div class="leftType"> <span>年代：</span><a href="{$webpath}index.php?s=video/lists/id/3/year/2012">2012</a><a href="{$webpath}index.php?s=video/lists/id/3/year/2011">2011</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2010">2010</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2009">2009</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2008">2008</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2007">2007</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2006">2006</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2005">2005</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2004">2004</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2003">2003</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2002">2002</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2001">2001</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/2000">2000</a> <a href="{$webpath}index.php?s=video/lists/id/3/year/1999">1999</a></div>
+      </div>
+      <!--综艺排行结束-->
+    </div>
+  </div>
+</div>
+<!--今日综艺结束-->
+<!--今日动漫开始-->
+<div class="wrapper">
+  <div class="box b2">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt m3">
+          <h2><a title="{:get_channel_name(3)}" href="{:get_channel_name(3,'showurl')}" target="_blank">{:get_channel_name(3)}</a></h2>
+          <div class="act">
+            <gxcms name="video" cid="3" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(3,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList">
+          <ul>
+            <gxcms name="video" cid="3" limit="12" order="addtime desc,weekhits desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><gt name="video.hits" value="999">
+                    <span class="hotV"></span>
+                  </gt></a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                      <span class="extArrow"></span> </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <!--动漫排行开始-->
+      <div class="cate rebo">
+        <div class="tBox">
+          <h4>{:get_channel_name(3)}排行榜</h4>
+          <div class="tabbox"> <a id="Tab_dmrebo_0" class="on" onmouseover="switchTab('dmrebo',0,3,'on','');">本日</a> <a id="Tab_dmrebo_1" onmouseover="switchTab('dmrebo',1,3,'on','');">本周</a> <a id="Tab_dmrebo_2" onmouseover="switchTab('dmrebo',2,3,'on','');">本月</a> </div>
+        </div>
+        <div class="reboList noLine">
+          <ul id="List_dmrebo_0">
+            <gxcms name="video" cid="3" limit="10" order="dayhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_dmrebo_1" style="display:none;">
+            <gxcms name="video" cid="3" limit="10" order="weekhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_dmrebo_2" style="display:none;">
+            <gxcms name="video" cid="3" limit="10" order="monthhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--今日动漫结束-->
+<!--今日纪录片开始-->
+<div class="wrapper">
+<div class="indexAd">{:get_cms_ads('index-980-3')}</div>
+  <div class="box b2">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt m5">
+          <h2><a title="{:get_channel_name(6)}" href="{:get_channel_name(6,'showurl')}" target="_blank">{:get_channel_name(6)}</a></h2>
+          <div class="act">
+            <gxcms name="video" cid="6" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(6,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList">
+          <ul>
+            <gxcms name="video" cid="6" limit="12" order="addtime desc,weekhits desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><gt name="video.hits" value="999">
+                    <span class="hotV"></span>
+                  </gt></a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                      <span class="extArrow"></span> </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <!--纪录片排行开始-->
+      <div class="cate rebo">
+        <div class="tBox">
+          <h4>{:get_channel_name(6)}排行榜</h4>
+          <div class="tabbox"> <a id="Tab_jlrebo_0" class="on" onmouseover="switchTab('jlrebo',0,3,'on','');">本日</a> <a id="Tab_jlrebo_1" onmouseover="switchTab('jlrebo',1,3,'on','');">本周</a> <a id="Tab_jlrebo_2" onmouseover="switchTab('jlrebo',2,3,'on','');">本月</a> </div>
+        </div>
+        <div class="reboList noLine">
+          <ul id="List_jlrebo_0">
+            <gxcms name="video" cid="6" limit="10" order="dayhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_jlrebo_1" style="display:none;">
+            <gxcms name="video" cid="6" limit="10" order="weekhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+          <ul id="List_jlrebo_2" style="display:none;">
+            <gxcms name="video" cid="6" limit="10" order="monthhits desc">
+              <eq name="i" value="1">
+                <li class="no1">
+                  <div class="reboImg">
+                    <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><span class="rtop"></span></a></div>
+                    <div class="imgBg"></div>
+                  </div>
+                  <div class="reboText">
+                    <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                    <p>评分：{$video.score}</p>
+                    <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+                </li>
+                <else/>
+                <lt name="i" value="4">
+                  <li class="no2">
+                    <else />
+                  <li> 
+                </lt>
+                <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+                </li>
+              </eq>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <!--纪录片行结束-->
+    </div>
+  </div>
+</div>
+<!--今日纪录片结束-->
+<div class="wrapper">
+  <div class="box b6">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont mf">
+          <h2><span>精彩专题</span></h2>
+        </div>
+        <div class="boxList zt">
+        <div class="btnBox"></div>
+          <div id="viewer2">
+            <div id="viewerFrame2">
+                <gxcms name="special" limit="3" order="addtime desc">
+                  <div class="ztList">
+                    <div class="sLogo"><a href="{$special.readurl}" title="{$special.title}"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$special.logo}" alt="{$special.title}"/></a></div>
+                    <div class="sText">
+                      <dd class="sT"><h3><a href="{$special.readurl}" title="{$special.title}">{$special.title|get_replace_html=0,12}</a></h3><em>人气<strong>{$special.hits}</strong></em></dd>
+                      <dd><strong>更新时间：</strong>{$special.addtime|date='Y-m-d',###}</dd>
+                      <dd><strong>简介：</strong>{$special.content|msubstr=0,28,'utf-8',true}<a href="{$special.readurl}" class="smore">详情</a></dd>
+                      <dd></dd>
+                    </div>
+                  </div>
+                </gxcms>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b7">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>最新资讯</span></h2>
+      </div>
+      <div class="reboList newsli">
+        <ul>
+          <gxcms name="info" cid="7" limit="10" order="addtime desc">
+            <li> <i></i><a href="{$info.readurl}" title="{$info.title}">{$info.title|get_replace_html=0,15,'utf-8',true}</a> </li>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--主体结束-->
+<!--友情链接开始-->
+<div class="wrapper">
+  <div class="box link">
+    <div class="page">
+      <h2><span>友情链接</span></h2>
+      <div class="ul-link fn-clear">
+        <ul>
+          <li><a href="http://www.dadi.tv" target="_blank" title="百度影音">百度影音</a></li>
+          <gxcms name="link" limit="100" order="type asc,oid desc">
+            <eq name="link.type" value="1">
+              <li><a href="{$link.url}" target="_blank" title="{$link.title}">{$link.title|get_replace_html=0,8}</a></li>
+              <else />
+              <li><a href="{$link.url}" target="_blank"><img src="{$link.logo}" alt="{$link.title}" width="88" height="31"/></a></li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+      </div>
+</div>
+</div>
+<!--友情链接结束-->
+<!--底部-->
+<include file="footer" />
+<script src="/youmtv/js/lazyload.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+	  $("img").lazyload({
+		  effect : "fadeIn"
+	  });
+	  toptiphtml();
+  });
+</script>
+<script language="JavaScript" type="text/javascript" src="/youmtv/js/bnJs/jquery.easing.1.3.js"></script>
+<script language="JavaScript" type="text/javascript" src="/youmtv/js/bnJs/jquery.animate-colors-min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/youmtv/js/bnJs/jquery.skitter.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/youmtv/js/bnJs/highlight.js"></script>
+<script type="text/javascript" src="/youmtv/js/common.js"></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=6&amp;mini=1&amp;pos=right&amp;uid=676338" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+var bds_config={"bdTop":235};
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+</body>
+</html>

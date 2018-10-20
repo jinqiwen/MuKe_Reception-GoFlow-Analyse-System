@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>纪录片频道-大地影院 www.dadi.tv</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<include file="system" />
+</head>
+<body>
+<include file="header"/>
+<script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/bnJs/jquery.imageScroller.js"></script>
+<div class="photos">
+  <div class="btnBox"> <a id="lBtn">向前</a><a id="rBtn">向后</a> </div>
+  <div id="viewer">
+    <div id="viewerFrame">
+        <gxcms name="video" cid="6" limit="15" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p><if condition="$video.cid eq 4">主持<elseif condition="$video.cid eq 3"/>配音<else/>主演</if>:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    </div>
+  </div>
+</div>
+<!--主体开始-->
+<!--检索-->
+<div class="wrapper">
+  <div class="tagbox">
+    <h2>纪录片</h2>
+    <ul class="taglink">
+      <li><a href="{$webpath}index.php?s=video/lists/id/6/order/addtime" target="_blank">最新更新</a></li>
+      <li><a href="{$webpath}index.php?s=video/lists/id/6/order/hits">人气最高</a></li>
+      <li><a href="{$webpath}index.php?s=video/lists/id/6/order/score">评分最高</a></li>
+    </ul>
+    <dl class="tagbox_dl tagbox_dl_3">
+      <dt>地区</dt>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/中国" >中国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/内地" >内地</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/香港" >香港</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/台湾" >台湾</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/美国" >美国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/韩国" >韩国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/日本" >日本</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/英国" >英国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/法国" >法国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/印度" >印度</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/德国" >德国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/area/泰国" >泰国</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_7">
+      <dt>年代</dt>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2012">2012</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2011">2011</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2010">2010</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2009">2009</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2008">2008</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2007">2007</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2006">2006</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2005">2005</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2004">2004</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2003">2003</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2002">2002</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/year/2001">2001</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_6">
+      <dt>字母</dt>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/A" >A</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/B" >B</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/C" >C</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/D" >D</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/E" >E</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/F" >F</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/G" >G</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/H" >H</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/I" >I</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/J" >J</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/K" >K</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/L" >L</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/M" >M</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/N" >N</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/O" >O</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/P" >P</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/Q" >Q</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/R" >R</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/S" >S</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/T" >T</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/U" >U</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/V" >V</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/W" >W</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/X" >X</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/Y" >Y</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/6/letter/Z" >Z</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_3">
+      <dt>热门关键字</dt>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/探索">探索</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/档案">档案</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/解密">解密</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/探险">探险</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/荒野">荒野</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/宇宙">宇宙</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/战争">旅游</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/军事">军事</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/自然">自然</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/历史">历史</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/文化">文化</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/地理">地理</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox2">
+      <dt>热门纪录片</dt>
+      <gxcms name="video" cid="6" limit="3" order="hits desc">
+        <dd><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,12}</a></dd>
+      </gxcms>
+    </dl>
+  </div>
+</div>
+<!--检索结束-->
+<!--推荐电影开始-->
+<div class="wrapper">
+  <div class="box">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont">
+          <h2><span>热播推荐</span></h2>
+        </div>
+        <div class="boxList">
+          <ul>
+            <gxcms name="video" cid="6" limit="1,12" order="stars desc,addtime desc" mod="2" stars="2,3,4,5">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/></a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year}</span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+      <div class="cate top1">
+        <gxcms name="video" cid="6" limit="1" order="weekhits desc" stars="5">
+          <div class="topImg"> <a title="{$video.title}" href="{$video.readurl}"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/></a> </div>
+          <div class="topText">
+            <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><em>{$video.score}</em><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+            主演：{$video.actor|get_replace_html=0,13|get_actor_url}
+            <div class="p2">{$video.content|get_replace_html=0,40,'utf-8',true}</div>
+          </div>
+        </gxcms>
+      </div>
+    </div>
+  </div>
+</div>
+<!--推荐电影结束-->
+<div class="wrapper">
+<div class="indexAd">{:get_cms_ads('jlp980')}</div>
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont">
+          <h2><span>今日纪录片</span></h2>
+        </div>
+        <div class="boxList d1">
+          <ul>
+            <gxcms name="video" cid="6" limit="12" order="addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont rt1">
+        <h2><span>纪录片好评榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="6" limit="10" order="score desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--主体结束-->
+<include file="footer" />
+<script type="text/javascript">
+	$(function(){	
+		$("#viewer").imageScroller({
+			next:"lBtn",
+			prev:"rBtn",
+			frame:"viewerFrame",
+			width:198,
+			child: ".scrImg",
+			auto: true
+		});	 
+		$("#viewer2").imageScroller({
+			next:"lBtnz",
+			prev:"rBtnz",
+			frame:"viewerFrame2",
+			width:224,
+			child: ".ztList"
+		});	 
+		$(function() {
+	  $("img").lazyload({
+		  effect : "fadeIn"
+	  });
+	  toptiphtml();
+  });
+	});
+</script>
+<script src="{$webpath}youmtv/js/lazyload.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+<!--主体结束-->
+</body>
+</html>

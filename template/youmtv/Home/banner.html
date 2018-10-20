@@ -1,0 +1,33 @@
+<script>
+  $(document).ready(function(){
+	  
+	  $('.bnImg').css({width:968, height: 310}).skitter({numbers: false,hideTools: true,dots: true, interval: 2000,animation: 'random',preview:true,numbers_align: 'center'});
+	  // Highlight
+	  $('pre.code').highlight({source:1, zebra:1, indent:'space', list:'ol'});
+	  
+  });
+</script>
+<div id="banner">
+<div class="TJ"></div>
+<div style=" clear:both"></div>
+  <div class="box">
+    <div class="l"></div>
+    <div class="c">
+      <!--幻灯片开始-->
+      <div class="box_skitter bnImg">
+        <ul>
+          <gxcms name="slide" order="oid asc">
+            <li><a href="{$slide.link}" title="{$slide.title}"><img src="{$slide.picurl} " class="fadeFour" alt="{$slide.title}"/></a>
+              <div class="label_text">
+                <p class="t">{$slide.content|msubstr="0,60"}</p>
+                <b></b>
+              </div>
+            </li>
+          </gxcms>
+        </ul>
+      </div>
+      <!--幻灯片结束-->
+    </div>
+    <div class="r"></div>
+  </div>
+</div>

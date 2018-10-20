@@ -1,0 +1,23 @@
+直接修改根目录下的caiji.js文件即可。
+
+可拷贝增加下面的<tr>块以多增加采集点。
+
+如果资源站没有提供光线cms的采集文件，您可根据其提供的飞飞cms2.8的采集文件进行修改，方法为：
+
+例如，资源站提供的飞飞cms采集文件xml_feifei2.8.js
+<td class="l ct"><a href="index.php?s=Admin-Xml-Caijia-action-day-fid-1133-h-24-xmlurl-http:||www.avshida.com:8011|api|ffcms2.8|index.php?action=day-reurl-http:||www.avshida.com:8011|api|ffcms2.8|?"> 采集当天 </a></td>
+
+将这里面的|换为@ ，替换根目录下caiji.js里的"采集当天"。采集本周及全部等也同理修改。
+http:||www.avshida.com:8011|api|ffcms2.8|index.php?action=day-reurl-http:||www.avshida.com:8011|api|ffcms2.8|?
+
+修改后的就是：
+document.write('<td class="ct"><a href="?s=Admin/Collect/Gxcms/ziyuan/a/fid/1/action/day/h/24/xmlurl/http:@@www.avshida.com:8011@api@ffcms2.8@index.php?action=day-reurl-http:@@www.avshida.com:8011@api@ffcms2.8@?">采集当天</a></td>');
+需要清空浏览器缓存才能生效.
+
+
+==================
+如何添加新的播放器支持？
+1.找到/core/Lib/Action/CmsAction.class.php文件，大概在139行添加修改以下代码：
+
+}else if(stripos($currentUrl, 'ffhd://')!==false){ 
+2.将 ffhd.js（下载）放入目录/views/js/中，修改ffhd.js中的插件id号及安装页面即可。

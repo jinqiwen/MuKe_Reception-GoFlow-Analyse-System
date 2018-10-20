@@ -1,0 +1,116 @@
+<script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/bnJs/jquery.imageScroller.js"></script>
+<div class="photos">
+  <div class="btnBox"> <a id="lBtn">向前</a><a id="rBtn">向后</a> </div>
+  <div id="viewer">
+    <div id="viewerFrame">
+<if condition="C(url_html) eq 1">
+	<if condition="$model eq 'movie'">
+    	<gxcms name="video" cid="1" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主演:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+    <if condition="$model eq 'tv'">
+    	<gxcms name="video" cid="2" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主演:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+    <if condition="$model eq 'zongyi'">
+    	<gxcms name="video" cid="4" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主持:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+    <if condition="$model eq 'anime'">
+    	<gxcms name="video" cid="3" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>配音:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+		<gxcms name="video" cid="6" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主演:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    </if>
+    </if>
+    </if>
+    </if>
+
+ <else/>   
+    <if condition="check_model('movie') eq 1">
+        <gxcms name="video" cid="1" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主演:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+    <if condition="check_model('tv') eq 1">
+        <gxcms name="video" cid="2" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主演:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+    <if condition="check_model('zongyi') eq 1">
+        <gxcms name="video" cid="4" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+              <div class="scrTitle">
+                <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+                <p>主持:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+              </div>
+           </div>
+         </gxcms>
+    <else/>
+    <if condition="check_model('anime') eq 1">
+        <gxcms name="video" cid="3" limit="10" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>配音:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    <else/>
+        <gxcms name="video" cid="6" limit="10" order="stars desc,addtime desc,weekhits desc" stars="5">
+            <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p>主演:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+    	</gxcms>
+    </if>
+    </if>
+    </if>
+    </if>
+</if>  
+</div>
+</div>
+</div>

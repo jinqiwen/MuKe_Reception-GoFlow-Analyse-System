@@ -1,0 +1,36 @@
+<script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/template.js"></script>
+
+<div id="all">
+  <h1><a title="{$webname}" href="/"><img src="{$webpath}youmtv/images/allLogo.gif" alt="{$webname}"/></a></h1>
+  <div class="nav">
+    <ul>
+      <li class="no"><a href="{$webpath}" title="首页">首页</a></li>
+      <li><a href="{$movieurl}" title="电影">电影</a></li>
+      <li><a href="{$tvurl}" title="电视剧">电视剧</a></li>
+      <li><a href="{$zongyiurl}" title="综艺">综艺</a></li>
+      <li><a href="{$animeurl}" title="动漫">动漫</a></li>
+      <li><a href="{$jilupianurl}" title="纪录片">纪录片</a></li>
+      <li><a href="{$specialurl}" title="专题">专题</a></li>
+      <li><a href="{$webpath}index.php?s=info/lists/id/7.html" title="资讯">资讯</a></li>
+      <li><a href="{$topurl}" title="排行榜">排行榜</a></li>
+    </ul>
+    <if condition="C('user_register') eq 1"><span id="Login" class="login"></span></if>
+    <span class="his" id="ggg" onmouseover="fnDisplayMenu(this,'mnuArtStyles');" onmouseout="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" ><a class="headerMnuLink" id="mnuArtStylesLink" href="javascript:void(0);">我看过的</a> </span>
+    <div class="popup1" id="mnuArtStyles"  style="display:none" onmouseover="fnDisplayMenu2($('#mnuArtStylesLink'),'mnuArtStyles');" onmouseout="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" >
+      <div class="sub"></div>
+      <div id="history"></div>
+    </div>
+  </div>
+  <div class="search">
+    <div class="box">
+      <form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" target="_blank" >
+        <div class="input">
+          <input type="text" value="{$keyword|default='请输入视频名、导演或主演'}" id="wd" name="wd" autocomplete="off" maxlength="35">
+        </div>
+        <div class="btn">
+          <input type="submit" value=""/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

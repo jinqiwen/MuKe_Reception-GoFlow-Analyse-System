@@ -1,0 +1,16 @@
+<script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/bnJs/jquery.imageScroller.js"></script>
+<div class="photos">
+  <div class="btnBox"> <a id="lBtn">向前</a><a id="rBtn">向后</a> </div>
+  <div id="viewer">
+    <div id="viewerFrame">
+        <gxcms name="video" cid="1,2,3,4" limit="15" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p><if condition="$video.cid eq 4">主持<elseif condition="$video.cid eq 3"/>配音<else/>主演</if>:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    </div>
+  </div>
+</div>

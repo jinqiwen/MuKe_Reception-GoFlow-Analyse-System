@@ -1,0 +1,104 @@
+==========================================文章模型>>单层循环数据列表标签===================================
+参    数:
+	name:info 必须
+	ids:调用指定ID的一个或多个数据,如 1,2,3
+	cid:数据所在分类,可调出一个或多个分类数据,如 1,2,3 默认值为全部,在当前分类为:'.$cid.'
+	field:调用文章模型的指定字段,如(id,title,actor) 默认全部
+	limit:数据条数,默认值为10,可以指定从第几条开始,如3,8(表示共调用8条,从第3条开始)
+	order:推荐方式(id/addtime/hits/monthhits/weekhits/dayhits/year/up/down) (desc/asc/rand())
+	keyword:'关键字' 用于调用自定义关键字(搜索/标签)结果
+	time: 指定上传时间内,如(1/7/30) 分别表示(当天/本周/本月)
+	stars:推荐星级数,可调出一个或多个星级数据,如 1,2,3 默认值为全部
+	hits:大于指定人气值的数据(如:888)或某段之间的(如:888,999)
+	up:大于指定支持值的数据(如:888)或某段之间的(如:888,999)
+	down:大于指定反对值的数据(如:888)或某段之间的(如:888,999)
+	score:大于指定评分平均值的数据(如:6)或某段之间的(如:1,8)/范围:0-10
+	scoreer:大于指定评分人的数据(如:888)或某段之间的(如:888,999)
+<gxcms name="info" limit="12" order="addtime desc">
+    {$i}
+    {$info.showname} 所属分类中文名称
+    {$info.showurl} 所属分类URL链接
+    {$info.cid} 所属分类ID
+    {$info.id} 文章ID
+    {$info.title} 文章名称 {:get_color_title($info['title'],$info['color'])}
+    {$info.readurl} 文章详情URL链接
+    {$info.remark} 文章简介
+    {$info.content} 文章详情 {$video.content|msubstr='0,30'}
+    {$info.picurl} 文章海报图片地址
+    {$info.picurl_small} 文章海报图片缩略图地址
+    {$info.reurl} 文章来源
+    {$info.inputer} 影片录入者
+    {$info.letter} 影片首字母
+    {$info.addtime} 文章添加日期 {$info.addtime|get_color_date='Y-m-d H:i:s',###}
+    {$info.hits} 文章人气值
+    {$info.stars} 文章推荐级别
+    {$info.up} 文章顶信息
+    {$info.down} 文章踩集息
+    {$info.score} 文章评分平均值
+    {$info.scoreer} 文章评分人数
+    {$info.keywords} 文章自定义关键字
+</gxcms>
+
+===========================================文章(频道页/栏目页)标签说明===================================
+解析范围: 频道页模板(info_channel.html) 栏目页模板(info_list.html)
+{$cid} 频道栏目ID
+{$pid} 频道栏目父级ID
+{$cname} 当前分类中文名称
+{$cfile} 当前分类自定义别名
+{$ctitle} 频道栏目自定义title
+{$ckeywords} 频道栏目模板MATH关键词
+{$cdescription} 频道模板MATH描述
+{$page} 当前页数
+{$pages} 翻页信息列表
+{$count} 当前栏目记录数
+{$order} 排序方式(动态模式下地址栏的排序方式)
+===========================================文章(频道页/栏目页)分页循环展示===================================
+参    数:
+    limit:每页数据条数 不填写则默认值为10
+    order:数据排序方式 不填写则默认值为addtime,可使用字段信息如下
+        addtime,上传时间/hits,人气值/stars,推荐级别/up,顶/down,踩/score,评分值/scoreer,评分人数/'.$order.',根据地址栏的order参数动态变化(按人气,按点击)
+<gxlist name="info" limit="12" order="$order">
+    ......循环变量见上表
+</gxlist>
+
+===========================================文章(搜索页)变量标签====================================
+解析范围: 影视搜索页模板(info_search.html)
+{$cid} 分类限制检索范围ID
+{$keyword} 当前搜索关键字
+{$order} 排序方式(地址栏排序方式)
+{$count} 搜索结果记录数
+{$page} 当前页数
+{$pages} 分页列表信息
+===========================================文章(搜索页)分页循环展示标签====================================
+参    数:
+    limit:每页数据条数 不填写则默认值为10
+    order:数据排序方式 不填写则默认值为addtime,可使用字段信息如下
+        addtime,上传时间/hits,人气值/stars,推荐级别/up,顶/down,踩/score,评分值/scoreer,评分人数/'.$order.',根据地址栏的order参数动态变化(按人气,按点击)
+<gxsearch name="info" limit="12" order="$order">
+    ......循环变量文章循环调用表
+</gxsearch>
+
+===========================================文章(内容页)标签说明====================================
+    {$i}
+    {$id} 文章ID
+    {$title} 文章名称 {:get_color_title($title,$color)}
+    {$readurl} 文章详情URL链接
+    {$remark} 文章简介
+    {$content} 文章详情 {$content|msubstr='0,30'}
+    {$picurl} 文章海报图片地址
+    {$picurl_small} 文章海报图片缩略图地址
+    {$reurl} 文章来源
+    {$inputer} 影片录入者
+    {$letter} 影片首字母
+    {$addtime} 文章添加日期 {$addtime|get_color_date='Y-m-d H:i:s',###}
+    {$hits} 文章总人气值
+    {$monthhits} 月人气值
+    {$weekhits} 周人气值
+    {$dayhits} 日人气值
+    {$inserthits} 写入点击数
+    {$stars} 文章推荐级别
+    {$up} 文章顶信息
+    {$down} 文章踩集息
+    {$score} 文章评分平均值
+    {$scoreer} 文章评分人数
+    {$keywords} 文章自定义关键字

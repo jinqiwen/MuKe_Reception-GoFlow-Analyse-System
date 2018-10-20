@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<include file="allstyle" />
+
+</head>
+<body class="allBg">
+<?php if(!$_GET[id]) $cid=1;else $cid=$_GET[id];if($_GET[order]) $order=$_GET[order]." desc";else $order="hits desc";$time=$_GET[time];?>
+<include file="headerAll"/>
+<div class="wrapper">
+  <div class="nline"></div>
+  <div class="box">
+    <div id="side">
+      <div class="submenu">
+        <div class="boxTt nol">
+          <h2>视频排行榜</h2>
+        </div>
+        <div class="boxCon">
+          <ul class="subList">
+           <li <elt name="cid" value="1">class="cur"</elt>><a href="{$webpath}index.php?s=top10/lists/id/1">电影</a></li>
+           <li <eq name="cid" value="2">class="cur"</eq>><a href="{$webpath}index.php?s=top10/lists/id/2">电视剧</a></li>
+           <li <eq name="cid" value="3">class="cur"</eq>><a href="{$webpath}index.php?s=top10/lists/id/3">动漫</a></li>
+           <li <eq name="cid" value="4">class="cur"</eq>><a href="{$webpath}index.php?s=top10/lists/id/4">综艺</a></li>
+           <li <eq name="cid" value="6">class="cur"</eq>><a href="{$webpath}index.php?s=top10/lists/id/6">纪录片</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="leftAd">{:get_cms_ads('top10-242-1')}</div>
+      <div class="leftAd">{:get_cms_ads('top10-242-2')}</div>
+    </div>
+    <div id="right">
+      <div class="ibox iboxList">
+      <div class="boxTt boxTtab">
+        <p <if condition="($time eq NULL) and ($order eq 'hits desc')">class="on"</if>><a href="{$webpath}index.php?s=top10/lists/id/{$cid}">总播放</a></p>
+        <p <eq name="time" value="7">class="on"</eq>><a href="{$webpath}index.php?s=top10/lists/id/{$cid}/time/7">本周</a></p>
+        <p <eq name="time" value="30">class="on"</eq>><a href="{$webpath}index.php?s=top10/lists/id/{$cid}/time/30">本月</a></p>
+        <p <eq name="time" value="90">class="on"</eq>><a href="{$webpath}index.php?s=top10/lists/id/{$cid}/time/90">本季</a></p>
+        <p <eq name="order" value="score desc">class="on"</eq>><a href="{$webpath}index.php?s=top10/lists/id/{$cid}/order/score">好评</a></p>
+        <p <eq name="order" value="year desc">class="on"</eq>><a href="{$webpath}index.php?s=top10/lists/id/{$cid}/order/year">新片</a></p>
+      </div>
+        <div class="boxCon1 cno">
+          <div id="videoData" class="boxList mtop">
+                    <ul>
+                    <li class="L">
+                       <div class="t1">排序</div>
+                       <div class="t2">片名</div>
+                       <div class="t3">类型</div>
+                       <div class="t4">年代<em>|</em>地区</div>
+                       <div class="t5">
+                       <eq name='cid' value='4'>主持<else/><eq name='cid' value='3'>配音<else/>主演</eq></eq>
+                       
+                       </div>
+                       <div class="t6"><eq name="order" value="score desc">评分<else/>播放次数</eq></div>
+                     </li>
+                    <gxcms name="video" cid="'.$cid.'" time="'.$time.'" limit="50" order="'.$order.'">
+                       <li>
+                       <div class="t1"><em <eq name="i" value="1">class="top1"<else/><lt name="i" value="4">class="top2"</lt></eq>><lt name="i" value="10">0{$i}<else/>{$i}</lt></em></div>
+                       <div class="t2"><a href="{$video.readurl}" class="tit" title="{$video.title}">{$video.title|msubstr=0,12}</a></div>
+                       <div class="t3"><a href="{$video.showurl}">{$video.showname}</a></div>
+                       <div class="t4"><a href="{$webpath}index.php?s=video/lists/id/{$cid}/year/{$video.year}">{$video.year|default=未知}</a><em>|</em><a href="{$webpath}index.php?s=video/lists/id/{$cid}/area/{$video.area}">{$video.area|default=未知}</a></div>
+                       <div class="t5">{$video.actor|get_replace_html=0,20,'utf-8',true|get_actor_url}</div>
+                       <div class="t6"><eq name="order" value="score desc"><strong>{$video.score}</strong><else/><span>{$video.hits}</span></eq></div>
+                       </li>
+                    </gxcms>
+          </div>
+        </div>
+        <!--列表结束-->
+      </div>
+    </div>
+  </div> 
+  </div>
+  <include file="footer" />
+</body>
+</html>

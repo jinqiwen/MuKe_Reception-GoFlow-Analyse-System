@@ -1,0 +1,954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>电影频道 - 最新、最全、最好看、最经典、最高清的免费正版在线电影 - 大地影院 www.dadi.tv</title>
+<meta name="keywords" content="电影,片花,预告片,海报,剧照,影评,免费,付费,高清,新片,大片,1080P,720P,蓝光,好莱坞,华语,点播,下载,电影院,影讯,最新电影,高清电影,国产片,欧洲电影,港台电影,日韩电影,热播电影,免费电影,经典电影,高清视频,在线观看" />
+<meta name="description" content="大地影院电影频道，为您提供免费720P、1080P高品质正版高清电影内容在线观看和下载服务，为您提供最新大片720P、1080P、蓝光付费在线观看和下载服务，专业全面提供海量的好莱坞电影、华语电影、欧洲电影、日韩电影、经典电影，同时提供最新最专业的预告片、电影新闻、海报、剧照、评分、影评、影视短评等信息，是中国最大最全的正版电影发行平台。" />
+<include file="system" />
+</head>
+<body>
+<div id="header">
+  <h1><a title="{$webname}" href="/"><img src="{$webpath}youmtv/images/logo.gif" alt="{$webname}"/></a></h1>
+  <div class="search">
+    <div class="box">
+     <form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" target="_blank">
+      <div class="input">
+      <input type="text" value="{$keyword|default='请输入视频名、导演或主演'}" id="xdwwd" name="wd" maxlength="35" class="text"  autocomplete="off"/>
+      </div>
+      <div class="btn">
+      <input name="ok" class="bat" type="submit" value=" " id="ok" />
+      </div>
+      <div id="xdwss"></div>
+      <script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/searchajax.js"></script>
+     </form>
+    </div>
+    <div class="searchHot">{$hotkey}</div>
+  </div>
+  <div class="topR">
+    <ul>
+      <li>
+        <if condition="C('user_register') eq 1"><i id="Login" class="login"></i><span>|</span></if>
+        <a href="javascript:void(0)" id="fav">加入收藏</a><span>|</span><a href="{$guestbookurl}">留言求片</a> </li>
+      <li>共{:get_channel_count(0)}部电影<span>|</span><a href="{$rssurl}">RSS订阅</a></li>
+    </ul>
+  </div>
+  <div class="nav1">
+    <div class="L"></div>
+    <div class="nav">
+      <if condition="C(url_html) eq 1">
+        <ul>
+          <li><a href="{$webpath}" title="首页" 
+            <if condition="$model eq 'index'">class="current"</if>
+            ><strong>首页</strong></a></li>
+          <li><a href="{$movieurl}" title="电影" 
+            <if condition="$model eq 'movie'">class="current"</if>
+            ><strong>电影</strong></a></li>
+          <li><a href="{$tvurl}" title="电视剧" 
+            <if condition="$model eq 'tv'">class="current"</if>
+            ><strong>电视剧</strong></a></li>
+          <li><a href="{$zongyiurl}" title="综艺" 
+            <if condition="$model eq 'zongyi'">class="current"</if>
+            ><strong>综艺</strong></a></li>
+          <li><a href="{$animeurl}" title="动漫" 
+            <if condition="$model eq 'anime'">class="current"</if>
+            ><strong>动漫</strong></a></li>
+          <li><a href="{$jilupianurl}" title="纪录片" 
+            <if condition="$model eq 'jilupian'">class="current"</if>
+            ><strong>纪录片</strong></a></li>
+         <li><a href="/list/25.html" title="微电影" 
+          <if condition="$model eq 'info'">class="current"</if>
+         ><strong>微电影</strong></a></li>
+           <li><a href="/list/30.html" title="音乐.MTV" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>音乐.MTV</strong></a></li>
+          <li><a href="/list/24.html" title="直播" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>直播</strong></a></li>
+          <li><a href="/special/lists.html" title="专题" 
+            <if condition="$model eq 'special'">class="current"</if>
+            ><strong>专题</strong></a></li>
+          <li><a href="/list/7.html" title="资讯" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>资讯</strong></a></li>
+          <li><a href="{$topurl}" title="排行榜" 
+            <if condition="$model eq 'top10'">class="current"</if>
+            ><strong>排行榜</strong></a></li>
+        </ul>
+        <else/>
+        <ul>
+          <li><a href="{$webpath}" title="首页" 
+            <if condition="$model eq 'index'">class="current"</if>
+            ><strong>首页</strong></a></li>
+          <li><a href="{$movieurl}" title="电影" 
+            <if condition="check_model('movie') eq 1">class="current"</if>
+            ><strong>电影</strong></a></li>
+          <li><a href="{$tvurl}" title="电视剧" 
+            <if condition="check_model('tv') eq 1">class="current"</if>
+            ><strong>电视剧</strong></a></li>
+          <li><a href="{$zongyiurl}" title="综艺" 
+            <if condition="check_model('zongyi') eq 1">class="current"</if>
+            ><strong>综艺</strong></a></li>
+          <li><a href="{$animeurl}" title="动漫" 
+            <if condition="check_model('anime') eq 1">class="current"</if>
+            ><strong>动漫</strong></a></li>
+          <li><a href="{$jilupianurl}" title="纪录片" 
+            <if condition="check_model('jilupian') eq 1">class="current"</if>
+            ><strong>纪录片</strong></a></li>
+           <li><a href="{$webpath}/list/25.html" title="微电影" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>微电影</strong></a></li>
+           <li><a href="/list/30.html" title="音乐.MTV" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>音乐.MTV</strong></a></li>
+           <li><a href="{$webpath}/list/24.html" title="直播" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>直播</strong></a></li>
+          <li><a href="/special/lists.html" title="专题" 
+            <if condition="check_model('special') eq 1">class="current"</if>
+            ><strong>专题</strong></a></li>
+          <li><a href="/list/7.html" title="资讯" 
+            <if condition="check_model('info') eq 1">class="current"</if>
+            ><strong>资讯</strong></a></li>
+          <li><a href="{$topurl}" title="排行榜" 
+            <if condition="check_model('top10') eq 1">class="current"</if>
+            ><strong>排行榜</strong></a></li>
+        </ul>
+      </if>
+    </div>
+    <div class="R"></div>
+  </div>
+  <div class="nav2">
+    <if condition="C(url_html) eq 1">
+      <if condition="$model eq 'movie'"> <span class="s1">
+        <gxcms name="menu" ids="1">
+          <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+        </gxcms>
+        </span>
+        <else/>
+        <if condition="$model eq 'tv'"> <span class="s1">
+          <gxcms name="menu" ids="2">
+            <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+          </gxcms>
+          </span>
+          <else/>
+          <span id="topTip">{$toptiphtml}</span></if>
+      </if>
+      <else/>
+      <if condition="check_model('movie') eq 1"> <span class="s1">
+        <gxcms name="menu" ids="1">
+          <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+        </gxcms>
+        </span>
+        <else/>
+        <if condition="check_model('tv') eq 1"> <span class="s1">
+          <gxcms name="menu" ids="2">
+            <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+          </gxcms>
+          </span>
+          <else/>
+         <span id="topTip">{$toptiphtml}</span></if>
+      </if>
+    </if>
+    <span class="his" id="ggg" onMouseOver="fnDisplayMenu(this,'mnuArtStyles');" onMouseOut="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" ><b></b><a class="headerMnuLink" id="mnuArtStylesLink" href="javascript:void(0);">我看过的</a></span><span class="zm"><b></b><a href="{$webpath}desktop.php">保存到桌面</a></span>
+    <div class="popup1" id="mnuArtStyles"  style="display:none" onMouseOver="fnDisplayMenu2($('#mnuArtStylesLink'),'mnuArtStyles');" onMouseOut="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" >
+      <div class="sub"></div>
+      <div id="history"></div>
+    </div>
+  </div>
+</div>
+
+<div class="photos">
+  <div class="btnBox"> <a id="lBtn">向前</a><a id="rBtn">向后</a> </div>
+  <div id="viewer">
+    <div id="viewerFrame">
+        <gxcms name="video" cid="1" limit="15" order="stars desc,addtime desc,weekhits desc" mod="2" stars="5">
+          <div class="scrImg"> <a class="imgBorder" href="{$video.readurl}" title="{$video.title}"><img src="{$video.picurl}" onerror="this.src='{$webpath}views/images/nophoto.jpg'" alt="{$video.title}" /><b></b></a>
+            <div class="scrTitle">
+              <p class="p1"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,16}</a></p>
+              <p><if condition="$video.cid eq 4">主持<elseif condition="$video.cid eq 3"/>配音<else/>主演</if>:{$video.actor|get_replace_html=0,12|get_actor_url}</p>
+            </div>
+          </div>
+        </gxcms>
+    </div>
+  </div>
+</div>
+
+<!--主体开始-->
+<!--检索-->
+<div class="wrapper">
+  <div class="tagbox">
+    <h2>电影索引</h2>
+    <ul class="taglink">
+      <li><a href="{$webpath}index.php?s=video/lists/id/1/order/addtime" target="_blank">最新更新</a></li>
+      <li><a href="{$webpath}index.php?s=video/lists/id/1/order/hits">人气最高</a></li>
+      <li><a href="{$webpath}index.php?s=video/lists/id/1/order/score">评分最高</a></li>
+    </ul>
+    <dl class="tagbox_dl tagbox_dl_1">
+      <dt>类型</dt>
+      <if condition="get_channel_son(1) eq 0">
+        <gxcms name="menu" ids="1">
+          <gxfor name="menu.son" id="menuson">
+            <dd><a href="{$menuson.showurl}">{$menuson.cname}</a></dd>
+          </gxfor>
+        </gxcms>
+      </if>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_3">
+      <dt>地区</dt>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/中国" >中国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/内地" >内地</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/香港" >香港</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/台湾" >台湾</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/美国" >美国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/韩国" >韩国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/日本" >日本</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/英国" >英国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/法国" >法国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/印度" >印度</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/德国" >德国</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/area/泰国" >泰国</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_2">
+      <dt>年代</dt>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2013">2013</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2012">2012</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2011">2011</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2010">2010</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2009">2009</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2008">2008</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2007">2007</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2006">2006</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2005">2005</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2004">2004</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2003">2003</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2002">2002</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2001">2001</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/2000">2000</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/year/1999">1999</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_6">
+      <dt>字母</dt>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/A" >A</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/B" >B</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/C" >C</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/D" >D</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/E" >E</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/F" >F</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/G" >G</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/H" >H</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/I" >I</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/J" >J</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/K" >K</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/L" >L</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/M" >M</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/N" >N</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/O" >O</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/P" >P</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/Q" >Q</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/R" >R</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/S" >S</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/T" >T</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/U" >U</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/V" >V</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/W" >W</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/X" >X</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/Y" >Y</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/lists/id/1/letter/Z" >Z</a></dd>
+    </dl>
+    <dl class="tagbox_dl tagbox_dl_4">
+      <dt>明星</dt>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/刘德华">刘德华</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/成龙">成龙</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/周润发">周润发</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/周星驰">周星驰</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/甄子丹">甄子丹</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/杨紫琼">杨紫琼</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/史泰龙">史泰龙</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/李连杰">李连杰</a></dd>
+      <dd><a href="{$webpath}index.php?s=video/search/wd/梁朝伟">梁朝伟</a></dd>
+    </dl>
+  </div>
+</div>
+<!--检索结束-->
+<!--推荐电影开始-->
+<div class="wrapper">
+  <div class="box b3">
+    <div class="page">
+      <div class="main mm">
+        <div class="boxTt mfont">
+          <h2><span>热门大片</span></h2>
+        </div>
+        <div class="boxList d1">
+          <ul>
+            <gxcms name="video" cid="1" limit="8" order="stars desc,addtime desc" mod="2" stars="2,3,4">
+              <lt name="i" value="7">
+                <li class="mov">
+                  <else />
+                <li class="mov r"> 
+              </lt>
+              <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/></a>
+                <div class="imgBg"></div>
+                <div class="ext">
+                  <div class="extTxt">
+                    <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                    <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year}</span> </div>
+                    <div class="extDig">{$video.score}</div>
+                    <span class="extArrow"></span> </div>
+                </div>
+              </div>
+              <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+              <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--推荐电影结束-->
+<div class="wrapper">
+<div class="indexAd">{:get_cms_ads('movie980-1')}</div>
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont">
+          <h2><span>今日电影</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="1" limit="5" order="addtime desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(1,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul>
+            <gxcms name="video" cid="1" limit="12" order="addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont rt1">
+        <h2><span>电影好评榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="1" limit="10" order="score desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,13}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>动作片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="8" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(8,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="8" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="8" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>喜剧片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="9" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(9,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="9" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="9" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>爱情片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="10" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(10,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="10" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="10" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>科幻片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="11" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(11,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="11" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="11" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>剧情片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="12" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(12,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="12" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="12" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>恐怖片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="13" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(13,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="13" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="13" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="wrapper">
+  <div class="box b4">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont lmm">
+          <h2><span>战争片热播</span></h2>
+          <div class="act">
+            <gxcms name="video" cid="14" limit="5" order="score desc"> <a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a>| </gxcms>
+            <a href="{:get_channel_name(14,'showurl')}" title="更多" class="more">更多>></a> </div>
+        </div>
+        <div class="boxList d1">
+          <ul id="List_redian_0">
+            <gxcms name="video" cid="14" limit="12" order="weekhits desc,addtime desc">
+              <li class="mov">
+                <div class="imgBox"><a title="{$video.title}" href="{$video.readurl}" class="pic"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/>
+                  <gt name="video.hits" value="999"> <span class="hotV"></span> </gt>
+                  </a>
+                  <div class="imgBg"></div>
+                  <div class="ext">
+                    <div class="extTxt">
+                      <h3 class="extTt">{$video.title|get_replace_html=0,16}</h3>
+                      <div class="extIntro"><span>类型：{$video.showname}</span> <span>主演：{$video.actor|get_replace_html=0,16|get_actor_url}</span> <span>地区：{$video.area} </span> <span>人气：{$video.hits}</span> <span>年代：{$video.year} </span> </div>
+                      <div class="extDig">{$video.score}</div>
+                      <span class="extArrow"></span> </div>
+                  </div>
+                </div>
+                <p class="movTt"><a href="{$video.readurl}" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><a target="_blank" class="movInfo" title="{$video.title}在线评论" href="{$video.readurl}#comment">{$video.title|get_replace_html=0,8}</a></p>
+                <p>{$video.intro|get_replace_html=0,8|default='最新热片'}</p>
+              </li>
+            </gxcms>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b5">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>热播榜</span></h2>
+      </div>
+      <div class="reboList">
+        <ul>
+          <gxcms name="video" cid="14" limit="10" order="hits desc">
+            <eq name="i" value="1">
+              <li class="no1">
+                <div class="reboImg">
+                  <div class="pic"><a href="{$video.readurl}" title="{$video.title}" target="_blank"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$video.picurl}" alt="{$video.title}"/><span class="rtop"></span></a></div>
+                  <div class="imgBg"></div>
+                </div>
+                <div class="reboText">
+                  <p class="p1"><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,5}</a></p>
+                  <p>评分：{$video.score}</p>
+                  <span class="p2">{$video.content|get_replace_html=0,32,'utf-8',true}</span> </div>
+              </li>
+              <else/>
+              <lt name="i" value="4">
+                <li class="no2">
+                  <else />
+                <li> 
+              </lt>
+              <em>{$i}</em><a href="{$video.readurl}" title="{$video.title}" target="_blank">{$video.title|get_replace_html=0,11}</a> <span>{$video.score}</span>
+              </li>
+            </eq>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+<div class="indexAd">{:get_cms_ads('movie980-2')}</div>
+  <div class="box b6">
+    <div class="page">
+      <div class="main">
+        <div class="boxTt mfont mf">
+          <h2><span>精彩专题</span></h2>
+        </div>
+        <div class="boxList zt">
+        <div class="btnBox"> <a id="lBtnz">向前</a><a id="rBtnz">向后</a> </div>
+          <div id="viewer2">
+            <div id="viewerFrame2">
+                <gxcms name="special" limit="6" order="addtime desc">
+                  <div class="ztList">
+                    <div class="sLogo"><a href="{$special.readurl}" title="{$special.title}"><img src="{$webpath}youmtv/images/grey.gif" data-original="{$special.logo}" alt="{$special.title}"/></a></div>
+                    <div class="sText">
+                      <dd class="sT"><h3><a href="{$special.readurl}" title="{$special.title}">{$special.title|get_replace_html=0,12}</a></h3><em>人气<strong>{$special.hits}</strong></em></dd>
+                      <dd><strong>更新时间：</strong>{$special.addtime|date='Y-m-d',###}</dd>
+                      <dd><strong>简介：</strong>{$special.content|msubstr=0,28,'utf-8',true}<a href="{$special.readurl}" class="smore">详情</a></dd>
+                      <dd></dd>
+                    </div>
+                  </div>
+                </gxcms>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box b7">
+    <div class="page">
+      <div class="boxTt mfont mf">
+        <h2><span>最新电影资讯</span></h2>
+      </div>
+      <div class="reboList newsli">
+        <ul>
+          <gxcms name="info" cid="22" limit="10" order="addtime desc">
+            <li> <i></i><a href="{$info.readurl}" title="{$info.title}">{$info.title|get_replace_html=0,15,'utf-8',true}</a> </li>
+          </gxcms>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--主体结束-->
+<!--底部-->
+<include file="footer" />
+<script type="text/javascript">
+	$(function(){	
+		$("#viewer").imageScroller({
+			next:"lBtn",
+			prev:"rBtn",
+			frame:"viewerFrame",
+			width:198,
+			child: ".scrImg",
+			auto: true
+		});	 
+		$("#viewer2").imageScroller({
+			next:"lBtnz",
+			prev:"rBtnz",
+			frame:"viewerFrame2",
+			width:224,
+			child: ".ztList"
+		});	 
+		$(function() {
+	  $("img").lazyload({
+		  effect : "fadeIn"
+	  });
+	  toptiphtml();
+  });
+	});
+</script>
+<script src="{$webpath}youmtv/js/lazyload.js" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/bnJs/jquery.imageScroller.js"></script>
+</body>
+</html>

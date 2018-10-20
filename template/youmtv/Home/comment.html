@@ -1,0 +1,54 @@
+<script type="text/javascript">
+	$(document).ready(function(){	
+	$("#comment_content").charCount({});
+	});
+</script>
+<notempty name="list_comment">
+  <ul class="list">
+    <gxfor name="list_comment" id="comment">
+      <li>
+        <div class="autoheight">
+          <div class="faceImg"><empty name="comment.face"><img src="{$webpath}youmtv/images/face.gif" />
+            <else />
+            <img src="{$comment.face}" /></empty>
+            </div>
+            <div class="text"><div class="lc"><span class="time">{$comment.addtime|date='Y-m-d',###}</span><strong>{$comment.username|htmlspecialchars|remove_xss}</strong></div>
+            <div class="comText">{$comment.content|htmlspecialchars|remove_xss}</div>
+            <div class="cMore"><span><a class="cup" onclick="cup({$comment.id})" id="cup{$comment.id}">顶[{$comment.up}]</a><em>|</em><a class="cdown" onclick="cdown({$comment.id})" id="cdown{$comment.id}">踩[{$comment.down}]</a></span><span class="lc">{$comment.floor}楼</span></div>
+            </div>
+        </div>
+      </li>
+    </gxfor>
+    <else />
+	<p class='empty'>暂无评论...</p>
+  </ul>
+</notempty>
+  <if condition="$count gt C('user_page_cm')">
+    <div class="pages">{$pages}</div>
+  </if>
+
+
+<!--发表评论表单 -->
+<div class="form">
+<h3 class="cTxt">我来说两句：</h3>
+  <if condition="(C('user_post') eq 1) and ($userid eq 0)">
+    <div class="commentLogin">发表评论，请登录： <a href="{$webpath}index.php?s=user/login">登录</a><em>|</em><a href="index.php?s=user/reg">注册</a></div>
+    <div id="comentDiv">
+     <div class="comment">
+      <textarea name="content" id="comment_content" rows="5" disabled="disabled" class="txtIn" maxlength="200" ></textarea>
+     </div>
+    </div>
+    <p class="under_row">
+      <input id="submitCommBtn" disabled="disabled" onclick="commitFunc()" class="submit" type="button" value="发表评论"/>
+    </p>
+    <else/>
+    <div class="comment">
+    <textarea name="content" id="comment_content" rows="5" class="txtIn" maxlength="200"></textarea>
+    </div>
+    <p class="under_row">
+      <input id="comment_button" class="submit" onclick="CommentPost();" type="button" value="发表评论"/>
+    </p>
+  </if>
+</div>
+
+

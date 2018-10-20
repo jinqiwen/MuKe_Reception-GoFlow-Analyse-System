@@ -1,0 +1,22 @@
+===========================================全局标签说明===================================
+{$webpath} 网站安装路径
+{$webname} 网站名称
+{$weburl}  网站网址
+{$tplpath} 模板路径
+{$csspath} CSS路径
+{$webemail} 站长Email邮箱
+{$webtitle} MATH标题
+{$keywords} 网站SEO关键字
+{$description} MATH描述
+{$copyright} 版权信息
+{$tongji} 统计代码
+{$icp} 备案信息
+{$userid} 用户ID
+{$username} 用户名称
+{$guestbookurl} 留言本链接
+{$specialurl} 专题首页链接
+{$topurl} 排行榜链接
+{$rssurl} RSS订阅链接
+{$baidusitemap} 百度sitemap地图
+{$googlesitemap} 谷歌sitemap地图
+{$hotkey} 热门关键词列表

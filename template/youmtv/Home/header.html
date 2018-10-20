@@ -1,0 +1,149 @@
+<div id="header">
+  <h1><a title="{$webname}" href="/"><img src="{$webpath}youmtv/images/logo.gif" alt="{$webname}"/></a></h1>
+  <div class="search">
+    <div class="box">
+     <form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" target="_blank">
+      <div class="input">
+      <input type="text" value="{$keyword|default='请输入视频名、导演或主演'}" id="xdwwd" name="wd" maxlength="35" class="text"  autocomplete="off"/>
+      </div>
+      <div class="btn">
+      <input name="ok" class="bat" type="submit" value=" " id="ok" />
+      </div>
+      <div id="xdwss"></div>
+      <script language="JavaScript" type="text/javascript" src="{$webpath}youmtv/js/searchajax.js"></script>
+     </form>
+    </div>
+    <div class="searchHot">{$hotkey}</div>
+  </div>
+  <div class="topR">
+    <ul>
+      <li>
+        <if condition="C('user_register') eq 1"><i id="Login" class="login"></i><span>|</span></if>
+        <a href="javascript:void(0)" id="fav">加入收藏</a><span>|</span><a href="{$guestbookurl}">留言求片</a> </li>
+      <li>今日{:get_channel_count(0)}部<span>|</span><a href="{$rssurl}">RSS订阅</a></li>
+    </ul>
+  </div>
+  <div class="nav1">
+    <div class="L"></div>
+    <div class="nav">
+      <if condition="C(url_html) eq 1">
+        <ul>
+          <li><a href="{$webpath}" title="首页" 
+            <if condition="$model eq 'index'">class="current"</if>
+            ><strong>首页</strong></a></li>
+          <li><a href="{$movieurl}" title="电影" 
+            <if condition="$model eq 'movie'">class="current"</if>
+            ><strong>电影</strong></a></li>
+          <li><a href="{$tvurl}" title="电视剧" 
+            <if condition="$model eq 'tv'">class="current"</if>
+            ><strong>电视剧</strong></a></li>
+          <li><a href="{$zongyiurl}" title="综艺" 
+            <if condition="$model eq 'zongyi'">class="current"</if>
+            ><strong>综艺</strong></a></li>
+          <li><a href="{$animeurl}" title="动漫" 
+            <if condition="$model eq 'anime'">class="current"</if>
+            ><strong>动漫</strong></a></li>
+          <li><a href="{$jilupianurl}" title="纪录片" 
+            <if condition="$model eq 'jilupian'">class="current"</if>
+            ><strong>纪录片</strong></a></li>
+         <li><a href="/list/25.html" title="微电影" 
+          <if condition="$model eq 'info'">class="current"</if>
+         ><strong>微电影</strong></a></li>
+           <li><a href="/list/30.html" title="音乐.MTV" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>音乐.MTV</strong></a></li>
+          <li><a href="/list/24.html" title="直播" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>直播</strong></a></li>
+          <li><a href="/special/lists.html" title="专题" 
+            <if condition="$model eq 'special'">class="current"</if>
+            ><strong>专题</strong></a></li>
+          <li><a href="/list/7.html" title="资讯" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>资讯</strong></a></li>
+          <li><a href="{$topurl}" title="排行榜" 
+            <if condition="$model eq 'top10'">class="current"</if>
+            ><strong>排行榜</strong></a></li>
+        </ul>
+        <else/>
+        <ul>
+          <li><a href="{$webpath}" title="首页" 
+            <if condition="$model eq 'index'">class="current"</if>
+            ><strong>首页</strong></a></li>
+          <li><a href="{$movieurl}" title="电影" 
+            <if condition="check_model('movie') eq 1">class="current"</if>
+            ><strong>电影</strong></a></li>
+          <li><a href="{$tvurl}" title="电视剧" 
+            <if condition="check_model('tv') eq 1">class="current"</if>
+            ><strong>电视剧</strong></a></li>
+          <li><a href="{$zongyiurl}" title="综艺" 
+            <if condition="check_model('zongyi') eq 1">class="current"</if>
+            ><strong>综艺</strong></a></li>
+          <li><a href="{$animeurl}" title="动漫" 
+            <if condition="check_model('anime') eq 1">class="current"</if>
+            ><strong>动漫</strong></a></li>
+          <li><a href="{$jilupianurl}" title="纪录片" 
+            <if condition="check_model('jilupian') eq 1">class="current"</if>
+            ><strong>纪录片</strong></a></li>
+           <li><a href="{$webpath}/list/25.html" title="微电影" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>微电影</strong></a></li>
+           <li><a href="/list/30.html" title="音乐.MTV" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>音乐.MTV</strong></a></li>
+           <li><a href="{$webpath}/list/24.html" title="直播" 
+            <if condition="$model eq 'info'">class="current"</if>
+            ><strong>直播</strong></a></li>
+          <li><a href="/special/lists.html" title="专题" 
+            <if condition="check_model('special') eq 1">class="current"</if>
+            ><strong>专题</strong></a></li>
+          <li><a href="/list/7.html" title="资讯" 
+            <if condition="check_model('info') eq 1">class="current"</if>
+            ><strong>资讯</strong></a></li>
+          <li><a href="{$topurl}" title="排行榜" 
+            <if condition="check_model('top10') eq 1">class="current"</if>
+            ><strong>排行榜</strong></a></li>
+        </ul>
+      </if>
+    </div>
+    <div class="R"></div>
+  </div>
+  <div class="nav2">
+    <if condition="C(url_html) eq 1">
+      <if condition="$model eq 'movie'"> <span class="s1">
+        <gxcms name="menu" ids="1">
+          <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+        </gxcms>
+        </span>
+        <else/>
+        <if condition="$model eq 'tv'"> <span class="s1">
+          <gxcms name="menu" ids="2">
+            <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+          </gxcms>
+          </span>
+          <else/>
+          <span id="topTip">{$toptiphtml}</span></if>
+      </if>
+      <else/>
+      <if condition="check_model('movie') eq 1"> <span class="s1">
+        <gxcms name="menu" ids="1">
+          <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+        </gxcms>
+        </span>
+        <else/>
+        <if condition="check_model('tv') eq 1"> <span class="s1">
+          <gxcms name="menu" ids="2">
+            <gxfor name="menu.son" id="menuson"><a href="{$menuson.showurl}">{$menuson.cname}</a></gxfor>
+          </gxcms>
+          </span>
+          <else/>
+         <span id="topTip">{$toptiphtml}</span></if>
+      </if>
+    </if>
+    <span class="his" id="ggg" onMouseOver="fnDisplayMenu(this,'mnuArtStyles');" onMouseOut="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" ><b></b><a class="headerMnuLink" id="mnuArtStylesLink" href="javascript:void(0);">我看过的</a></span><span class="zm"><b></b><a href="{$webpath}desktop.php">保存到桌面</a></span>
+    <div class="popup1" id="mnuArtStyles"  style="display:none" onMouseOver="fnDisplayMenu2($('#mnuArtStylesLink'),'mnuArtStyles');" onMouseOut="fnHideMenu('mnuArtStyles'); fnRemoveHighlight('mnuArtStyles');" >
+      <div class="sub"></div>
+      <div id="history"></div>
+    </div>
+  </div>
+</div>

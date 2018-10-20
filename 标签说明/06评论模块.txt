@@ -1,0 +1,18 @@
+===========================================评论模块标签变量===================================
+{$mid} 模型ID(1=影视,2=文章,3=专题)
+{$did} 对应的模型ID数据值
+===========================================评论模块循环标签===================================
+<gxlist name="list" limit="comment">
+    {$i}
+    {$comment.id}
+    {$comment.mid} 1=影片,2=新闻,3=专题
+    {$comment.content|htmlspecialchars}
+    {$comment.ip}
+    {$comment.addtime|date='Y-m-d H:i:s',###}
+    {$comment.floor}
+    {$comment.up}
+    {$comment.down}
+    {$comment.userid}
+    {$comment.username|htmlspecialchars}
+    {$comment.face}
+</gxlist>
